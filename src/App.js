@@ -12,7 +12,7 @@ function App() {
         <h1>Receptek</h1>
       </header>
       <article>
-        <Kereso/>
+        
         <Receptek/>
         <Megjelenito/>
       </article>

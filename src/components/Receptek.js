@@ -1,11 +1,13 @@
 import Recept from "./Recept";
 import useApiContext from "../contexts/ApiContext";
+import Kereso from "./Kereso";
 
 export default function Receptek() {
 
   const{receptLista}=useApiContext();
   return (
-    
+    <div>
+      <Kereso/>
       <table>
         <thead>
           <tr>
@@ -18,7 +20,7 @@ export default function Receptek() {
           <Recept key={elem.id} adat={elem} />
         ))}
         </tbody>
-      </table>
+      </table></div>
       
     
   );
