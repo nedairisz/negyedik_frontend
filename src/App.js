@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Kereso from './components/Kereso';
+import Megjelenito from './components/Megjelenito';
 import Receptek from './components/Receptek';
 
 
@@ -13,6 +14,7 @@ function App() {
       <article>
         <Kereso/>
         <Receptek/>
+        <Megjelenito/>
       </article>
     </div>
   );

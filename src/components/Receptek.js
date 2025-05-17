@@ -1,8 +1,9 @@
 import Recept from "./Recept";
 import useApiContext from "../contexts/ApiContext";
+
 export default function Receptek() {
 
-    const{receptLista}=useApiContext
+  const{receptLista}=useApiContext();
   return (
     
       <table>
