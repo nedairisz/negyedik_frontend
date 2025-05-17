@@ -7,8 +7,8 @@ export default function Recept({ adat }) {
         
         <img
           src={
-            adat.kepUrl
-              ? `http://localhost:8000/kepek/${adat.kepUrl}`
+            adat.kepEleresiUt
+              ? `http://localhost:8000/kepek/${adat.kepEleresiUt}`
               : "/placeholder.png"
           }          
           style={{ maxWidth: "80px", maxHeight: "80px", objectFit: "cover" }}
