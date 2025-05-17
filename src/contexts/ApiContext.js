@@ -10,6 +10,7 @@ export const ApiContext = createContext({
 
 export const ApiProvider = ({ children }) => {
   const [receptLista, setReceptLista] = useState([]);
+  const [kategoriakLista, setKategoriakLista] = useState([]);
 
   const getLista = async (vegpont, callback) => {
     const { data } = await axios.get(vegpont);
@@ -18,7 +19,7 @@ export const ApiProvider = ({ children }) => {
 
   useEffect(() => {
     getLista("api/receptek", setReceptLista);
-    getLista("api/receptek", receptLista);
+    getLista("api/kategoriak", setKategoriakLista);
   }, []);
 
   const postAdat = async (adat, vegpont) => {
@@ -32,7 +33,7 @@ export const ApiProvider = ({ children }) => {
 
   return (
     <ApiContext.Provider
-      value={{ receptLista, postAdat, getLista, setReceptLista }}
+      value={{ receptLista, postAdat, getLista,  setReceptLista, kategoriakLista, setKategoriakLista,}}
     >
       {children}
     </ApiContext.Provider>

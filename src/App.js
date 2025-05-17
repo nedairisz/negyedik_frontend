@@ -14,7 +14,7 @@ function App() {
       <article>
         
         <Receptek/>
-        <Megjelenito/>
+        
       </article>
     </div>
   );

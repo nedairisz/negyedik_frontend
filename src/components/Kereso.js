@@ -1,24 +1,26 @@
+import { useState } from "react";
 import useApiContext from "../contexts/ApiContext";
 import axios from "../contexts/Axios";
 
 export default function Kereso({ kategoriakLista }) {
+  
+
+
+
   const { setReceptLista } = useApiContext();
+  const [kivalasztottKategoriaNev, setKivalasztottKategoriaNev] = useState("");
 
   const handleChange = async (esemeny) => {
-    const kivalasztottKategoriaNev = esemeny.target.value;
+    const nev = esemeny.target.value;
+    setKivalasztottKategoriaNev(nev);
 
-    if (kivalasztottKategoriaNev === "") {
+    if (nev === "") {
       const valasz = await axios.get("/receptek");
       setReceptLista(valasz.data);
     } else {
-      const kivalasztottKategoria = kategoriakLista.find(
-        (kategoria) => kategoria.nev === kivalasztottKategoriaNev
-      );
-
-      if (kivalasztottKategoria?.id) {
-        const valasz = await axios.get(
-          `/kategoriak/${kivalasztottKategoria.id}/receptek`
-        );
+      const kategoria = kategoriakLista.find(k => k.nev === nev);
+      if (kategoria?.id) {
+        const valasz = await axios.get(`/kategoriak/${kategoria.id}/receptek`);
         setReceptLista(valasz.data.receptek || []);
       }
     }
