@@ -1,4 +1,8 @@
+import Recept from "./Recept";
+import useApiContext from "../contexts/ApiContext";
 export default function Receptek() {
+
+    const{receptLista}=useApiContext
   return (
     
       <table>
@@ -9,7 +13,7 @@ export default function Receptek() {
           </tr>
         </thead>
         <tbody>
-        {receptekLista.map((elem) => (
+        {receptLista.map((elem) => (
           <Recept key={elem.id} adat={elem} />
         ))}
         </tbody>

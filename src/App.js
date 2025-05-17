@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Kereso from './components/Kereso';
+import Receptek from './components/Receptek';
+
 
 function App() {
   return (
