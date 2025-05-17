@@ -1,23 +1,40 @@
-import { useState } from "react"
+import useApiContext from "../contexts/ApiContext";
+import axios from "../contexts/Axios";
 
+export default function Kereso({ kategoriakLista }) {
+  const { setReceptLista } = useApiContext();
 
-export default function Kereso(){
+  const handleChange = async (esemeny) => {
+    const kivalasztottKategoriaNev = esemeny.target.value;
 
-    const [kategoria, setKategoria] = useState({
-        nev: "",
-    })
+    if (kivalasztottKategoriaNev === "") {
+      const valasz = await axios.get("/receptek");
+      setReceptLista(valasz.data);
+    } else {
+      const kivalasztottKategoria = kategoriakLista.find(
+        (kategoria) => kategoria.nev === kivalasztottKategoriaNev
+      );
 
-    return(
-        <form>
+      if (kivalasztottKategoria?.id) {
+        const valasz = await axios.get(
+          `/kategoriak/${kivalasztottKategoria.id}/receptek`
+        );
+        setReceptLista(valasz.data.receptek || []);
+      }
+    }
+  };
 
-            <label>Válasszon kategóriát</label>
-            <select name="kategoria" value={kategoria.nev} nChange={handleChange}>
-
-                    <option value="">-- Válassz kategóriát --</option>
-                        {kategoriakLista?.map((kategoriak) => (
-                    <option key={kategoriak.id} value={kategoriak.nev}>{kategoriak.nev}</option>
-                ))}       
-            </select>
-        </form>
-    )
+  return (
+    <form>
+      <label>Válassz kategóriát:</label>
+      <select onChange={handleChange} defaultValue="">
+        <option value="">-- Összes recept --</option>
+        {kategoriakLista?.map((kategoria) => (
+          <option key={kategoria.id} value={kategoria.nev}>
+            {kategoria.nev}
+          </option>
+        ))}
+      </select>
+    </form>
+  );
 }
