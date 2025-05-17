@@ -7,29 +7,22 @@ import './Receptek.css';
 
 
 export default function Receptek() {
+const { receptLista, kategoriakLista } = useApiContext();
 
-  const{receptLista}=useApiContext();
 
-   const [kivalasztottRecept, setKivalasztottRecept] = useState(null);
 
-  const kategoriakLista = [
-    ...new Map(
-      receptLista
-        .filter((r) => r.kategoriak)
-        .map((r) => [r.kategoriak.id, r.kategoriak])
-    ).values(),
-  ];
-
+// ...
+const [kivalasztottRecept, setKivalasztottRecept] = useState(null); 
 
   return (
     <div>
-       <Kereso kategoriakLista={kategoriakLista} />
-    
-      <table className="table table-striped">
+      <Kereso kategoriakLista={kategoriakLista} />
+
+      <table>
         <thead>
           <tr>
             <td>Cím</td>
-            <td>Kategórai</td>            
+            <td>Kategórai</td>
           </tr>
         </thead>
         <tbody>
