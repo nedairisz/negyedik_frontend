@@ -1,11 +1,14 @@
 import Recept from "./Recept";
 import useApiContext from "../contexts/ApiContext";
 import Kereso from "./Kereso";
+import Megjelenito from "./Megjelenito";
 import { useState } from "react";
 
 export default function Receptek() {
 
   const{receptLista}=useApiContext();
+
+   const [kivalasztottRecept, setKivalasztottRecept] = useState(null);
 
   const kategoriakLista = [
     ...new Map(
@@ -29,10 +32,12 @@ export default function Receptek() {
         </thead>
         <tbody>
          {receptLista.map((elem) => (
-            <Recept key={elem.id} adat={elem} />
+            <Recept key={elem.id} adat={elem}  onKattintas={() => setKivalasztottRecept(elem)}/>
           ))}
         </tbody>
-      </table></div>
+      </table>
+      <Megjelenito recept={kivalasztottRecept} />
+      </div>
       
     
   );

@@ -1,6 +1,6 @@
-export default function Recept({ adat }) {
+export default function Recept({ adat, onKattintas }) {
   return (
-    <tr>
+    <tr onClick={onKattintas}>
       <td>{adat.nev}</td>
       <td>{adat.kategoriak?.nev}</td>
       <td>
