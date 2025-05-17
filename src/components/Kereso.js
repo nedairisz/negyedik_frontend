@@ -25,7 +25,7 @@ export default function Kereso({ kategoriakLista }) {
   };
 
   return (
-    <form>
+    <form className="form-inline">
       <label>Válassz kategóriát:</label>
       <select onChange={handleChange} defaultValue="">
         <option value="">-- Összes recept --</option>

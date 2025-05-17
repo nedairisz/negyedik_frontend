@@ -3,6 +3,8 @@ import useApiContext from "../contexts/ApiContext";
 import Kereso from "./Kereso";
 import Megjelenito from "./Megjelenito";
 import { useState } from "react";
+import './Receptek.css';
+
 
 export default function Receptek() {
 
@@ -23,7 +25,7 @@ export default function Receptek() {
     <div>
        <Kereso kategoriakLista={kategoriakLista} />
     
-      <table>
+      <table className="table table-striped">
         <thead>
           <tr>
             <td>Cím</td>
@@ -36,7 +38,8 @@ export default function Receptek() {
           ))}
         </tbody>
       </table>
-      <Megjelenito recept={kivalasztottRecept} />
+      <div className="megjelenito">
+      <Megjelenito recept={kivalasztottRecept} /></div>
       </div>
       
     

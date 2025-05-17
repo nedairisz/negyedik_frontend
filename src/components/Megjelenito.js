@@ -1,10 +1,12 @@
+import './Megjelenito.css';
+
 export default function Megjelenito({ recept }) {
   if (!recept) {
     return <p>Válassz egy receptet!</p>;
   }
 
   return (
-    <div >
+    <div className="container">
       <h2>{recept.nev}</h2>
       <p>{recept.leiras}</p>
       <img

@@ -1,0 +1,7 @@
+
+.container {
+  display: grid;
+  grid-template-columns: fr fr fr;
+  background-color: dodgerblue;
+  padding: 10px;
+}
