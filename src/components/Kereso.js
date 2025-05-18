@@ -4,11 +4,8 @@ import axios from "../contexts/Axios";
 
 export default function Kereso({ kategoriakLista }) {
   
-
-
-
   const { setReceptLista } = useApiContext();
-  const [kivalasztottKategoriaNev, setKivalasztottKategoriaNev] = useState("");
+  const [kivalasztottKategoriaNev, setKivalasztottKategoriaNev] = useState();
 
   const handleChange = async (esemeny) => {
     const nev = esemeny.target.value;

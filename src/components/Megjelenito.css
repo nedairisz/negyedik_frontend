@@ -1,7 +1,22 @@
 
-.container {
+.megj {
   display: grid;
-  grid-template-columns: fr fr fr;
-  background-color: dodgerblue;
-  padding: 10px;
+  grid-template-columns: 1fr;
+  background-color: rgba(209, 221, 233, 0.867);
+  padding: 3em;
+  margin: 3em;
+  gap:1em;
+}
+h2, p, img {
+  margin: auto;
+}
+
+.megj img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5em;
 }

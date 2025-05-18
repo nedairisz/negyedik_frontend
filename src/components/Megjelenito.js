@@ -6,7 +6,7 @@ export default function Megjelenito({ recept }) {
   }
 
   return (
-    <div className="container">
+    <div className='megj'>
       <h2>{recept.nev}</h2>
       <p>{recept.leiras}</p>
       <img
